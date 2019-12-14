@@ -8,4 +8,3 @@ export const callMovie = () => {
             .catch(console.log);
 };
 
-// export callMovie;
