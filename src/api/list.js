@@ -1,5 +1,5 @@
 export function callMovieShort(movieName) {
-    const resp = fetch(`http://www.omdbapi.com/?t=${movieName}&plot=short&apikey=886580cf`)
+    const resp = fetch(`http://www.omdbapi.com/?t=${movieName}&plot=full&apikey=886580cf`)
             .then((res) =>
                 res.json()
             )

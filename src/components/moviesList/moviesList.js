@@ -1,6 +1,7 @@
 import React from 'react';
 import { callMovieShort } from '../../api/list';
 import Header from '../header/header';
+import MovieCard from '../movieCard/movieCard';
 import './movies-list.css';
 
 class MoviesList extends React.Component {
@@ -8,11 +9,13 @@ class MoviesList extends React.Component {
         super(props);
         this.state = {
             movie: '',
-            actionArr: ['Deadpool', 'X-men', 'Dragon Ball'],
-            adventureArr: ['The mummy', 'The matrix'],
-            comedyArr: ['Best in Show', 'The Hat'],
-            fantasyArr: ['The lord of the rings', 'Jumanji'],
-            movies: []
+            category: '',
+            actionArr: ['Deadpool', 'X-men', 'Dragon Ball', 'Thor', 'Spider-man'],
+            adventureArr: ['The mummy', 'The matrix', 'Aquaman'],
+            comedyArr: ['Best in Show', 'The Hat', 'The Beach Bum'],
+            fantasyArr: ['The lord of the rings', 'Jumanji', 'Hobbit'],
+            movies: [],
+            colapseInfo: true,
         }
       }
 
@@ -23,22 +26,19 @@ class MoviesList extends React.Component {
     getPathName() {
        const pathName = window.location.pathname.split('/movies/');
        const path = pathName[1];  
+       this.setState({category: path})
        const moviesArr = [];
        var categoryArr = [];
-       
+        
        categoryArr = this.selectedCategory(path);
        categoryArr.map((item, index) => {
                this.getMovieData(item).then((data) => {
-                   console.log(data, ' get movies data');
-
                    moviesArr.push(data);
                    this.setState({movies: moviesArr})
                    return moviesArr;
                }).catch((error) => {
                    console.log(error);
                });
-
-               console.log(this.state.movies)
            });
     }
 
@@ -51,7 +51,6 @@ class MoviesList extends React.Component {
     }
 
     selectedCategory(category) {
-        console.log(category, 'CAT')
         if(category === 'Action') {
             return this.state.actionArr;
         }
@@ -75,12 +74,32 @@ class MoviesList extends React.Component {
             <div className="movies">
                 <Header></Header>
                 <div className="movies-list-container">
-                    <div className="page-title">{this.state.category} Movies</div>
-                    {
-                        this.state.movies.length !== 0 ? this.state.movies.map((item, index) => {
-                            return <div>Movie {index} - {JSON.stringify(this.state.movies[index])}</div>
-                        }) : <div>No movies </div>
-                    }
+                    <div className="page-title">Recommended {this.state.category} Movies</div>
+                    <div className="movies-cards">
+                        {
+                            this.state.movies.length !== 0 ? this.state.movies.map((item, index) => {
+                            return <div className="card-poster">
+                                        {/* <div className={`movie-card ${this.state.category}`} style={{backgroundImage: `url(${item.Poster})`}} key={index}>
+                                            <div className="card-title">{item.Title}</div>
+                                        </div>
+                                        {
+                                            this.state.colapseInfo === false 
+                                            ?  (
+                                                <div className={`movie-info`}>
+                                                    <div>Year: {item.Year}</div>
+                                                    <div>Actors: {item.Actors}</div>
+                                                    <div>Genres: {item.Genre}</div>
+                                                    <div>Plot: {item.Plot}</div>
+                                                </div>
+                                            ) : null
+                                        } */}
+
+                                        <MovieCard movie={item} category={this.state.category} index={index}></MovieCard>
+                                        
+                                    </div>
+                            }) : <div>No movies </div>
+                        }
+                    </div>
                 </div>
             </div>
           )
