@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { callMovie } from '../../api/list';
+import Header from '../header/header';
 
 class MoviesList extends Component {
     state = {
@@ -13,7 +14,8 @@ class MoviesList extends Component {
     render() {
         return (
             <div>
-              movieslist
+                <Header></Header>
+                <div>movieslist</div>
             </div>
           )
     }

@@ -4,7 +4,8 @@ import React from 'react';
 function Header() {
   return (
     <div>
-        test header
+        <a>Home</a>
+        <input type="text" placeholder="search"></input>
     </div>
   );
 }

@@ -1,36 +1,22 @@
 import React, { Component } from 'react';
+import { Router, Link } from "@reach/router"
 import './App.css';
-import Header from './components/header/header';
 import MoviesList from './components/moviesList/moviesList';
 import CategoriesList from './components/categoriesList/categoriesList';
 
+const Home = () => <CategoriesList></CategoriesList>
+let Movies = () => <MoviesList></MoviesList>
+
 
 class App extends Component {
-  state = {
-    firstTimeLogin: '',
-  }
-
-  componentDidMount() {
-    if(!localStorage.firstTimeLogin) {
-      localStorage.setItem('firstTimeLogin', true);
-      this.setState({firstTimeLogin: true})
-    }
-  }
+  state = {}
 
   render() {
     return (
-      <div>
-
-        {/* {
-          this.state.firstTimeLogin === true
-            ? <CategoriesList />
-            : <div>
-              <Header></Header>
-              <MoviesList />
-            </div>
-        } */}
-        <CategoriesList></CategoriesList>
-      </div>
+      <Router>
+        <Home path="/" />
+        <Movies path="/movies" />
+      </Router>
     );
   }
 }
