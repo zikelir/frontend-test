@@ -16,7 +16,6 @@ class MoviesList extends React.Component {
 
     componentDidMount() {
         this.getPathName();
-        this.createMovieList();
     }
 
     getPathName() {
@@ -25,13 +24,12 @@ class MoviesList extends React.Component {
        this.setState({category: path});
     }
 
-    createMovieList() {
-        const movArr = [];
-            this.state.actionArr.map((item, index) => {
-               callMovieShort(item).then((data) => { movArr.push(JSON.stringify(data))});
-               console.log(movArr, 'movaarrr');
-               this.setState({movies: movArr});
-            });     
+    getMovieData(name) {
+        callMovieShort(name).then((data) => {
+            return data;
+        }).catch((err) => {
+            console.log(err)
+        });  
     }
 
     render() {
@@ -40,13 +38,11 @@ class MoviesList extends React.Component {
                 <Header></Header>
                 <div className="movies-list-container">
                     <div className="page-title">{this.state.category} Movies</div>
-                    {/* {
-                        this.state.movies.length !==0 ? this.state.movies.map((item, index) => {
-                            console.log(item, 'exec???');
-                            return <div>Movie {index} {item[index]}</div>
-                        }) : <div>No Data</div>
-                    } */}
-                    <div>{JSON.stringify(this.state)}</div>
+                    {
+                        this.state.actionArr.map((item, index) => {
+                            return <div>Movie {index} - {JSON.stringify(this.getMovieData(item))}</div>
+                        })
+                    }
                 </div>
             </div>
           )
