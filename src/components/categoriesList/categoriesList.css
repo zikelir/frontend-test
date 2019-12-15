@@ -28,7 +28,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     width: 20%;
     height: 33%;
-    margin-right: 24px;
+    margin-right: 40px;
     justify-content: center;
     display: flex;
     align-items: center;  
@@ -36,7 +36,7 @@
 }
 
 .category-card:hover {
-    background-size: 140%;
+    background-size: 160%;
 }
 
 .category-cards:last-of-type {
@@ -51,7 +51,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bold;
-  padding-left: 4px;
+  padding-left: 6px;
 }
 
 
@@ -62,7 +62,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-blend-mode: darken;
-    border-image: linear-gradient(to top, #8DF3DB 0%, #8FFF7C 100%);
+    border-image: linear-gradient(to top, #F9F255 0%, #F61C1C 100%);
     border-image-slice: 1;
 }
 
@@ -73,7 +73,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-blend-mode: darken;
-    border-image: linear-gradient(to top, #2449A8 0%, #219EF9 100%);
+    border-image: linear-gradient(to top, #8DF3DB 0%, #8FFF7C 100%);
     border-image-slice: 1;
 }
 
@@ -84,7 +84,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-blend-mode: darken;
-    border-image: linear-gradient(to top, #F9F255 0%, #F61C1C 100%);
+    border-image: linear-gradient(to top, #2449A8 0%, #219EF9 100%);
     border-image-slice: 1;
 }
 

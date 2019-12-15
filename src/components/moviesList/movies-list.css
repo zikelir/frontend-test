@@ -1,0 +1,11 @@
+.movies {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+.movies-list-container {
+    padding: 40px 24px;
+}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Router, Link } from "@reach/router"
+import { Router } from "@reach/router"
 import './App.css';
 import MoviesList from './components/moviesList/moviesList';
 import CategoriesList from './components/categoriesList/categoriesList';
@@ -15,7 +15,7 @@ class App extends Component {
     return (
       <Router>
         <Home path="/" />
-        <Movies path="/movies" />
+        <Movies path="/movies/:category" />
       </Router>
     );
   }

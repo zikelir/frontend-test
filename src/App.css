@@ -4,4 +4,12 @@ body {
   background-color: #111;
   color: #fff;
   background-image: url('./bg.svg');
+  display: flex;
+  box-sizing: border-box;
+}
+
+input {
+  border: transparent;
+  border-radius: 40px;
+  padding: 8px;
 }

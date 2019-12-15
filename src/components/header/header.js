@@ -1,11 +1,15 @@
 import React from 'react';
-
+import { Link } from "@reach/router";
+import './header.css';
 
 function Header() {
   return (
-    <div>
-        <a>Home</a>
-        <input type="text" placeholder="search"></input>
+    <div className="header-bar">
+        <div className="search-area">
+          <input type="text" placeholder="search" className="search-bar"></input>
+          <button className="search-button">Search</button>
+        </div>
+        <Link to="/" className="back-button"> {`<`} Back</Link>
     </div>
   );
 }
