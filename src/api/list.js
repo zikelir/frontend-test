@@ -1,10 +1,16 @@
-export const callMovie = () => {
-    fetch('http://www.omdbapi.com/?t=Lord of the rings&plot=full&apikey=886580cf')
+export async function callMovieShort(movieName) {
+    try {
+        const resp = await fetch(`http://www.omdbapi.com/?t=${movieName}&plot=short&apikey=886580cf`)
             .then(res => res.json())
             .then((data) => {
-                console.log(data);
-                // this.setState({movie: JSON.stringify(data)});
+                return data
             })
-            .catch(console.log);
+            .catch(console.log, ' api error');
+
+        return resp;
+    } catch(err) {
+        console.log(err);
+    }
+    
 };
 
