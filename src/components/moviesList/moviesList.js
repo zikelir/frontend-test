@@ -79,23 +79,7 @@ class MoviesList extends React.Component {
                         {
                             this.state.movies.length !== 0 ? this.state.movies.map((item, index) => {
                             return <div className="card-poster">
-                                        {/* <div className={`movie-card ${this.state.category}`} style={{backgroundImage: `url(${item.Poster})`}} key={index}>
-                                            <div className="card-title">{item.Title}</div>
-                                        </div>
-                                        {
-                                            this.state.colapseInfo === false 
-                                            ?  (
-                                                <div className={`movie-info`}>
-                                                    <div>Year: {item.Year}</div>
-                                                    <div>Actors: {item.Actors}</div>
-                                                    <div>Genres: {item.Genre}</div>
-                                                    <div>Plot: {item.Plot}</div>
-                                                </div>
-                                            ) : null
-                                        } */}
-
-                                        <MovieCard movie={item} category={this.state.category} index={index}></MovieCard>
-                                        
+                                        <MovieCard movie={item} category={this.state.category} index={index}></MovieCard> 
                                     </div>
                             }) : <div>No movies </div>
                         }

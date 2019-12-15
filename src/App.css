@@ -6,6 +6,8 @@ body {
   background-image: url('./bg.svg');
   display: flex;
   box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 input {

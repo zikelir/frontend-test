@@ -5,6 +5,7 @@
     box-sizing: border-box;
     flex-direction: column;
     overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 .movies-list-container {

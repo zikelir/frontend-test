@@ -1,7 +1,4 @@
 import React from 'react';
-// import { callMovieShort } from '../../api/list';
-// import Header from '../header/header';
-// import './movies-list.css';
 
 class MovieCard extends React.Component {
     constructor(props) {
