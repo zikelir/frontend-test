@@ -78,11 +78,11 @@ class MoviesList extends React.Component {
 
         return (
             <div className="movies">
-                <Header handleSearch={this.handleSearch}></Header>
+                <Header handleSearch={() => {this.handleSearch()}}></Header>
                 <div className="movies-list-container">
                     <div className="page-title">Recommended {this.state.category} Movies</div>
                     {
-                        this.state.searching === 'true' ? (
+                        this.state.search === 'true' ? (
                             <SearchComponent></SearchComponent>
                         ) : (
                                 <div className="movies-cards">
